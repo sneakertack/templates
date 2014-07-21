@@ -1,0 +1,2 @@
+# Compiled HTML is out, since markup is done in Jade.
+*.html

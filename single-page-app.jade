@@ -1,0 +1,98 @@
+//-
+  A single-page app powered by Angular and styled with Bootstrap. Don't be fooled by the current understanding of "Modern Single-Page-Application"; this one is really meant to be one (1) single page. There is no routing or other pagery.
+
+  Usually useful for building internal calculators/tools/whatnot (those that need a GUI, anyway).
+
+  Doesn't liase with any database by default (overkill for internal tools). For data persistence, consider URL query parameters or files.
+
+  CDN references explicitly declare https:// or http://, and file references use relative referencing, so that the compiled HTML can work when opened directly from a file browser (useful for non-technical colleagues).
+
+  Upon first use, consider doing the following:
+  1. Update CDN references to current versions.
+  2. Delete everything above this line.
+
+doctype html
+html.full-height(ng-app="mainApp")
+  head
+    title Sneakertack's app
+    //- Le Bootstrap & jQuery.
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    //- Le Angular.
+    //- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+
+    //- Le NVD3. This is because more often than not, GUI tools need graphs.
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.10/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css">
+    //- angularjs-nvd3-directives aren't CDNed for now, so use a local copy.
+    <script src="scripts/angularjs-nvd3-directives.min.js"></script>
+
+    //- Le help.
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+
+    //- These utility styles will come in handy.
+    style.
+      .full-height {
+        height: 100%;
+      }
+
+      .no-top-spacer {
+        margin-top: 0;
+      }
+
+      .no-spacer {
+        margin-bottom: 0;
+      }
+
+      .strong {
+        font-weight: bold;
+      }
+
+      .brand {
+        color: #15ad61;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      input.suppressed {
+        display: inline-block;
+        width: auto;
+      }
+
+      input.suppressed:not(:focus) {
+        border: 0;
+        padding: 0;
+        box-shadow: none;
+        border-bottom: dotted 1px #ddd;
+        outline: 0;
+      }
+
+  //- Markup.
+  body.full-height(ng-controller="MainController")
+    .container-fluid.full-height(style="padding: 20px;")
+      .row.full-height
+        .col-xs-6.full-height(style="overflow-y: scroll;")
+          form.form-horizontal(role="form")
+            h1.title.no-top-spacer Sneakertack's App
+            p: span.label.label-default v0.0.1
+
+        .col-xs-6.full-height
+          .well Cool, we have 2 columns.
+          p Last time I would toss graphs into this window.
+
+    //- Controller script. Migrate to its own JS file if it floats your boat.
+    script.
+      angular.module('mainApp', ['nvd3ChartDirectives'])
+
+        .controller('MainController', ['$scope', function ($scope) {
+          /* Logic goes here. (Everything else is illogical) */
+        }])  
+
+      ;
