@@ -1,16 +1,3 @@
-//-
-  A single-page app powered by Angular and styled with Bootstrap. Don't be fooled by the current understanding of "Modern Single-Page-Application"; this one is really meant to be one (1) single page. There is no routing or other pagery.
-
-  Usually useful for building internal calculators/tools/whatnot (those that need a GUI, anyway).
-
-  Doesn't liase with any database by default (overkill for internal tools). For data persistence, consider URL query parameters or files.
-
-  CDN references explicitly declare https:// or http://, and file references use relative referencing, so that the compiled HTML can work when opened directly from a file browser (useful for non-technical colleagues).
-
-  Upon first use, consider doing the following:
-  1. Update CDN references to current versions.
-  2. Delete everything above this line.
-
 doctype html
 html.full-height(ng-app="mainApp")
   head
