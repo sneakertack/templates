@@ -1,0 +1,25 @@
+// Compiled using Jade. Make amendments to 'index.jade' instead of 'index.html'.
+
+doctype html
+html.full-height(ng-app="mainApp")
+  head
+    title Desktop Application
+    //- Critical styles.
+    <link rel="stylesheet" href="styles/vendor/bootstrap.css">
+    <link rel="stylesheet" href="styles/vendor/bootstrap-theme.css">
+
+    //- Styles entry point.
+    <link rel="stylesheet" href="styles/app.css">
+
+  //- Markup.
+  body.full-height
+    div(ui-view)
+
+    //- JS.
+    //- Critical dependencies.
+    <script src="scripts/vendor/angular.js"></script>
+    <script src="scripts/vendor/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="scripts/vendor/angular-ui-router.js"></script>
+
+    //- Main app entry point.
+    <script src="scripts/APP.js"></script>

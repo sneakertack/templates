@@ -1,0 +1,7 @@
+node_modules/
+
+# compiled from jade.
+index.html
+
+# compiled from sass.
+styles/app.css

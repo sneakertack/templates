@@ -1,0 +1,18 @@
+{
+  "name": "haystakt-command",
+  "main": "index.html",
+  "window": {
+    "width": 1024,
+    "height": 768,
+    "toolbar": true // disable when packaging for release.
+  },
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-jade": "^0.7.0",
+    "gulp-sass": "^0.7.2"
+  },
+  "dependencies": {
+    "glob": "^4.0.5",
+    "jade": "^1.5.0"
+  }
+}
